@@ -3,6 +3,7 @@ package com.delivery.comuns;
 import com.delivery.api.dto.UserIDDTO;
 import com.delivery.api.dto.UserInputDTO;
 import com.delivery.api.dto.UserOutputDTO;
+import com.delivery.api.dto.UserUpdateInputDTO;
 import com.delivery.domain.entity.User;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,10 @@ public class Convert {
 
     public User inputConverter(UserInputDTO userInputDto){
         return mapper.map(userInputDto, User.class);
+    }
+
+    public User inputConverter(UserUpdateInputDTO userUpdateInputDto){
+        return mapper.map(userUpdateInputDto, User.class);
     }
 
     public User inputConverter(UserIDDTO userIDDTO) {

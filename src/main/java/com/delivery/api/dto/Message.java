@@ -1,8 +1,7 @@
 package com.delivery.api.dto;
 
 import lombok.Builder;
-import java.util.UUID;
 
 @Builder
-public record UserIDDTO(UUID id) {
+public record Message(String message) {
 }
