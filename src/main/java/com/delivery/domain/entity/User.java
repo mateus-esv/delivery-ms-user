@@ -1,10 +1,7 @@
 package com.delivery.domain.entity;
 
 import com.delivery.domain.enums.UserEnum;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Lob;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.UUID;
@@ -15,6 +12,7 @@ import java.util.UUID;
 @AllArgsConstructor
 @Entity
 @Builder
+@Table(name = "tb_user")
 public class User {
 
     @Id

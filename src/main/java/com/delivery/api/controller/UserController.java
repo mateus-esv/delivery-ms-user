@@ -4,7 +4,6 @@ import com.delivery.api.dto.*;
 import com.delivery.comuns.Convert;
 import com.delivery.domain.entity.User;
 import com.delivery.domain.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,11 +17,8 @@ public class UserController {
     private Convert convert;
     private UserService service;
 
-    public UserController(Convert convert){
+    public UserController(Convert convert, UserService service){
         this.convert = convert;
-    }
-
-    public UserController(UserService service){
         this.service = service;
     }
 

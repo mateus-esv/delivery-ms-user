@@ -35,7 +35,7 @@ public class UserService {
         }
 
         Optional<User> existingEmail = repository.findByEmail(user.getEmail());
-        Optional<User> existingPhone = repository.findByCelular(user.getPhone());
+        Optional<User> existingPhone = repository.findByPhone(user.getPhone());
 
         if (existingEmail.isPresent() || existingPhone.isPresent()) {
             logger.warn("Tentativa de salvar usuário com email ou celular já existente: email={}, celular={}",
@@ -67,7 +67,7 @@ public class UserService {
                     throw new UserException("Email inválido.");
                 });
 
-        repository.findByCelular(user.getPhone())
+        repository.findByPhone(user.getPhone())
                 .filter(u -> !u.getId().equals(user.getId()))
                 .ifPresent(u -> {
                     logger.warn("Celular já cadastrado para outro usuário: {}", user.getPhone());
