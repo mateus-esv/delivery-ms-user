@@ -23,7 +23,7 @@ public class UserService {
         this.repository = repository;
     }
 
-    public User save(User user) {
+    public User save(User user) throws UserException {
         if (user == null) {
             logger.error("Tentativa de salvar usuário nulo");
             throw new UserException("Usuário inválido.");
@@ -75,9 +75,8 @@ public class UserService {
                 });
 
         // Atualiza campos (mantendo id)
-        existingUser.setFullname(user.getFullname());
+        existingUser.setFullName(user.getFullName());
         existingUser.setEmail(user.getEmail());
-        existingUser.setPassword(user.getPassword());
         existingUser.setPhone(user.getPhone());
         existingUser.setLevel(user.getLevel());
 

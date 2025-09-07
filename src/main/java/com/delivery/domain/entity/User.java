@@ -19,17 +19,12 @@ public class User {
     @Column(unique = true, name = "id")
     private UUID id;
     @Column(name = "full_name")
-    private String fullname;
+    private String fullName;
     @Column(unique = true, name = "email")
     private String email;
-    @Column(name = "password")
-    private String password;
     @Column(unique = true, name = "phone")
     private String phone;
     @Column(name = "level")
     private UserEnum level;
-
-    @Column(unique = true, name = "token", columnDefinition = "text")
-    private String token;
 
 }

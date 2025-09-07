@@ -18,21 +18,20 @@ public class Convert {
 
     public User inputConverter(UserInputDTO userInputDto) {
         return User.builder()
-                .fullname(userInputDto.fullname())
+                .fullName(userInputDto.fullName())
                 .email(userInputDto.email())
-                .password(userInputDto.password())
                 .phone(userInputDto.phone())
                 .level(userInputDto.level())
                 .build();
     }
 
-    public User inputConverter(UserUpdateInputDTO userUpdateInputDto) {
+    public User inputConverter(UserUpdateInputDTO userUpdateInputDTO) {
         return User.builder()
-                .fullname(userUpdateInputDto.fullname())
-                .email(userUpdateInputDto.email())
-                .password(userUpdateInputDto.password())
-                .phone(userUpdateInputDto.phone())
-                .level(userUpdateInputDto.level())
+                .id(userUpdateInputDTO.id())
+                .fullName(userUpdateInputDTO.fullName())
+                .email(userUpdateInputDTO.email())
+                .phone(userUpdateInputDTO.phone())
+                .level(userUpdateInputDTO.level())
                 .build();
     }
 
@@ -44,7 +43,8 @@ public class Convert {
 
     public UserOutputDTO outputConverter(User user) {
         return new UserOutputDTO(
-                user.getFullname(),
+                user.getId(),
+                user.getFullName(),
                 user.getEmail(),
                 user.getPhone(),
                 user.getLevel()

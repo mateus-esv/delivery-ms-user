@@ -4,6 +4,7 @@ import com.delivery.api.dto.*;
 import com.delivery.comuns.Convert;
 import com.delivery.domain.entity.User;
 import com.delivery.domain.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,16 +15,15 @@ import java.util.List;
 @RequestMapping(path = {"/user"})
 public class UserController {
 
+    @Autowired
     private Convert convert;
-    private UserService service;
 
-    public UserController(Convert convert, UserService service){
-        this.convert = convert;
-        this.service = service;
-    }
+    @Autowired
+    private UserService service;
 
     @PostMapping("/save")
     public ResponseEntity<Message> save(@RequestBody UserInputDTO userInputDto){
+        System.out.println(userInputDto.toString());
         User user = convert.inputConverter(userInputDto);
         service.save(user);
         return new ResponseEntity<Message>(Message.builder().message("Usuário criado com sucesso.").build(), HttpStatus.CREATED);
